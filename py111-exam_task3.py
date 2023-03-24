@@ -1,25 +1,24 @@
 import networkx as nx
 
 
-def connect_comp(g: nx.Graph):
+def connect_graph(g: nx.Graph):
     nodes = set(g.nodes())
-    n = 0
+    number = 0
 
     while nodes:
         start = nodes.pop()
         queue = [start, ]
         viewed = [start, ]
-        res = set()
+        result = set()
         while len(queue):
-            n = queue.pop()
-            res.add(n)
-            for neighbor in g.neighbors(n):
+            number = queue.pop()
+            result.add(number)
+            for neighbor in g.neighbors(number):
                 if neighbor not in viewed:
                     queue.append(neighbor)
                     viewed.append(neighbor)
-                    nodes -= res
-                    n += 1
+                    nodes -= result
+                    number += 1
 
-            return n
-
+            return number
 
