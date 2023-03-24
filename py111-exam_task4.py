@@ -1,17 +1,17 @@
-def DNA_read(roster: list) -> str:
+def dna(dna: list) -> str:
 
-    width = len(roster[0])
-    d = {i: {} for i in range(width)}
-    for elem in roster:
-        for i in range(width):
+    len_ = len(dna[0])
+    d = {i: {} for i in range(len_)}
+    for elem in dna:
+        for i in range(len_):
             if elem[i] in d[i]:
                 d[i][elem[i]] += 1
             else:
                 d[i][elem[i]] = 0
-    res = ''
+    result = ''
     for small_dict in d:
-        res += small_dict.items().sort(key=lambda x: x[1])[0][0]
-    return res
+        result += small_dict.items().sort(key=lambda x: x[1])[0][0]
+    return result
 
 
 # if __name__ == '__main__':
